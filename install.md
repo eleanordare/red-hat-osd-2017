@@ -6,8 +6,9 @@
 * [Windows 10](#windows)
 
 <a name="linux"></a>
-## Linux Setup (Tested on Fedora 24):
-#### Install Openshift Origin Client Tools v. 3.6
+## Linux Setup (Tested on Fedora 24)
+
+#### Install Openshift
 * Navigate to https://github.com/openshift/origin/releases/tag/v3.6.0
 * Scroll to the bottom of the page and select the download for your operating system
 * In this case: **openshift-origin-client-tools-v3.6.0-c4dd4cf-linux-64bit.tar.gz**
@@ -27,34 +28,32 @@ echo $PATH
 ```
   * Within your path you should see **...:/usr/bin:...**
 
-#### Install docker (version 1.12 or higher)
-
-* https://docs.docker.com/engine/installation/linux/docker-ce/fedora/#install-docker-ce
+#### Install Docker (version 1.12 or higher)
+* Docker installation instructions for Fedora
+   * https://docs.docker.com/engine/installation/linux/docker-ce/fedora/#install-docker-ce
 * Set up the Repository
-* Run the following commands in the terminal
+   * Run the following commands in the terminal
 ```
 sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo  https://download.docker.com/linux/fedora/docker-ce.repo
 ```
 
 * Install docker with your platform's package manager
-* Since we are using Fedora as an example, the examples will use ‘**dnf**’ -- make sure to use the package manager for your specific distribution
+   * Since we are using Fedora as an example, the examples will use ‘**dnf**’ -- make sure to use the package manager for your specific distribution
 ```
 sudo dnf install docker-ce
 ```
 * Configure the docker daemon with an insecure registry parameter of 172.30.0.0/16
-  * Edit the /etc/sysconfig/docker file and add or uncomment this line -- ```INSECURE_REGISTRY='--insecure-registry 172.30.0.0/16'``` -- by running:
-```
-sudo vim /etc/sysconfig/docker
-```
 
 > If you have a registry secured with https but do not have proper certs
 > distributed, you can tell docker to not look for full authorization by
 > adding the registry to the INSECURE_REGISTRY line and uncommenting it.
 > ```INSECURE_REGISTRY='--insecure-registry 172.30.0.0/16'```
-
-  * **OR** if you have version 17+ of docker:
-    * edit the /etc/docker/daemon.json file or create the file if it does not exist and add the following:
+  * Edit the /etc/sysconfig/docker file and add or uncomment this line -- ```INSECURE_REGISTRY='--insecure-registry 172.30.0.0/16'``` -- by running:
+```
+sudo vim /etc/sysconfig/docker
+```
+  * **OR** if you have version 17+ of docker edit the /etc/docker/daemon.json file or create the file if it does not exist and add the following:
 ```
 {
      "insecure-registries": ["172.30.0.0/16"]
@@ -66,17 +65,20 @@ sudo vim /etc/sysconfig/docker
 systemctl daemon-reload
 systemctl restart docker
 ```
+> If you use your package manager to remove docker to start over `yum remove docker` make SURE to remove the docker files in /var/lib or else you will corrupt those files and not be able to start OC.
 
-#### Start/Stop OpenShift
-* Start a local cluster:
+
+#### Run Openshift
+* Start cluster:
 ```
 oc cluster up
 ```
+* Stop cluster:
+```
+oc cluster down
+```
 
-* When the cluster start you should see the following:
-> If you receive an error that you cannot connect to the docker daemon you may need to run as root: ```sudo oc cluster up```
-
-* You should see:
+* When the cluster starts you should see the following: 
 
 ```
 OpenShift server started.
@@ -87,14 +89,10 @@ You are logged in as:
     Password: <any value>
 To login as administrator:
     oc login -u system:admin
-
 Access the web console at the url above :  https://127.0.0.1:8443
 ```
 
-* Shutdown the cluster:
-```
-oc cluster down
-```
+> If you receive an error that you cannot connect to the docker daemon you may need to run as root: ```sudo oc cluster up```
 
 <a name="mac"></a>
 ## Setup for Mac (OS X El Capitan 10.11.6)
@@ -137,7 +135,9 @@ chown -R $(whoami):admin /usr/local
 
 #### Install Openshift
 * Install oc binary using homebrew:
-  * In Terminal, run: `brew install openshift-cli`
+```
+brew install openshift-cli
+```
 
 #### Run Openshift
 * Start cluster:
@@ -148,8 +148,6 @@ oc cluster up
 ```
 oc cluster down
 ```
-
-> If you `yum remove` (i.e. something doesn't work and you want to start over), make SURE to remove the docker files in /var/lib or else you will corrupt those files and not be able to start OC.
 
 
 <a name="windows"></a>
@@ -162,6 +160,7 @@ oc cluster down
     * this is optional, but lets you have a convenient bash shell on Windows
   * https://github.com/openshift/origin/releases/tag/v3.6.0 (download exe file at bottom)
 
+#### Install Openshift
 * Move oc.exe file to ~/.oc with Git Bash
 ```
 mv oc.exe ~/.oc
@@ -174,6 +173,7 @@ vi ~/.bash_profile
 
 * Restart terminal for changes to take effect
 
+#### Install Docker
 * For Windows Home:
   * Run Docker Toolbox installer
   * Click the Docker Quickstart button after installing, this will start the docker daemon
@@ -184,7 +184,21 @@ vi ~/.bash_profile
   * Run `~/.oc cluster up` or `oc cluster up` in Git Bash
 
 * Will need to add an insecure registry for oc cluster up to work:
-  * `vi ~/.docker/machine/machines/docker/config.json`
+```
+vi ~/.docker/machine/machines/docker/config.json
+```
   * Add “172.30.0.0/16” to insecure-registries array
-  * Run `docker-machine provision default` to update docker daemon
-  * Run `~/.oc cluster up` or `oc cluster up`
+  * Run the following to update docker daemon
+```
+docker-machine provision default
+```
+
+#### Run Openshift
+  * Run the commands to start the cluster
+  ```
+~/.oc cluster up
+  ```
+  **OR**
+ ```
+oc cluster up
+```
