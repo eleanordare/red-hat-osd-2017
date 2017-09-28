@@ -96,7 +96,6 @@ Access the web console at the url above :  https://127.0.0.1:8443
 oc cluster down
 ```
 
-<br/>
 <a name="mac"></a>
 ## Setup for Mac (OS X El Capitan 10.11.6)
 
@@ -153,7 +152,6 @@ oc cluster down
 > If you `yum remove` (i.e. something doesn't work and you want to start over), make SURE to remove the docker files in /var/lib or else you will corrupt those files and not be able to start OC.
 
 
-<br/>
 <a name="windows"></a>
 ## Setup for Windows 10
 
