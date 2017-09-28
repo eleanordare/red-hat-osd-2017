@@ -1,4 +1,4 @@
-Terminology
+# Terminology
 
 |Word/Phrase|Definition|
 |---|:---|
