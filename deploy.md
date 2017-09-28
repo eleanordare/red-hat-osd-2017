@@ -4,7 +4,7 @@ OpenShift is a cloud application development platform for container-based softwa
 ### Seed Applications
 We've created several seed applications to help you get started building applications on OpenShift. Feel free to start from one of these or create your own!
 * [Java](https://github.com/rynefagin/java-seed-ghc)
-* [AngularJS](https://github.com/ematusov/ghc-angular-seed)
+* [Angular](https://github.com/ematusov/ghc-angular-seed)
 * [Python 3.5](https://github.com/eleanordare/flask-python-openshift)
 
 You can fork these repos to your own GitHub account by clicking "Fork" in the upper right-hand corner. To work on the applications locally, copy the link under "Clone or Download" and run `git clone <link>` in Terminal on your computer.
