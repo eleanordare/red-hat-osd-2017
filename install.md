@@ -96,6 +96,7 @@ Access the web console at the url above :  https://127.0.0.1:8443
 oc cluster down
 ```
 
+<br/>
 <a name="mac"></a>
 ## Setup for Mac (OS X El Capitan 10.11.6)
 
@@ -152,7 +153,7 @@ oc cluster down
 > If you `yum remove` (i.e. something doesn't work and you want to start over), make SURE to remove the docker files in /var/lib or else you will corrupt those files and not be able to start OC.
 
 
-
+<br/>
 <a name="windows"></a>
 ## Setup for Windows 10
 
@@ -185,9 +186,7 @@ vi ~/.bash_profile
   * Run `~/.oc cluster up` or `oc cluster up` in Git Bash
 
 * Will need to add an insecure registry for oc cluster up to work:
-```
-vi ~/.docker/machine/machines/docker/config.json
-```
+  * `vi ~/.docker/machine/machines/docker/config.json`
   * Add “172.30.0.0/16” to insecure-registries array
   * Run `docker-machine provision default` to update docker daemon
   * Run `~/.oc cluster up` or `oc cluster up`
