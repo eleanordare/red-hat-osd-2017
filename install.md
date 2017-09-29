@@ -1,4 +1,4 @@
-# OpenShift Origin Installation Instructions
+# OpenShift Origin v3.6 Installation Instructions
 
 #### Table of Contents
 * [Linux](#linux)
