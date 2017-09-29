@@ -14,7 +14,7 @@
 * In this case: **openshift-origin-client-tools-v3.6.0-c4dd4cf-linux-64bit.tar.gz**
 * Once downloaded, in the terminal navigate to the download and extract the tar file
 ```
-tar -xzvf openshift-origin-client-tools-v3.6.0c4dd4cf-linux-64bit.tar.gz
+tar -xzvf openshift-origin-client-tools-v3.6.0-c4dd4cf-linux-64bit.tar.gz
 ```
 * Put **oc** file in **/usr/bin** directory (should already be in $PATH)
 * The oc executable is located under the parent directory of the openshift-origin-client-tools  directory
