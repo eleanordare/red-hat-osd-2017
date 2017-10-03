@@ -4,7 +4,7 @@
 
 ### What Version Should I be installing?
 
-You should be using Docker 1.12 or higher (1.17 preferred) and OpenShift 3.6.0 
+You should be using Docker 1.12 or higher (17 preferred) and OpenShift 3.6.0 
 
 ### What if I am unable to add the oc file to /usr/bin directory?
 
