@@ -49,14 +49,14 @@ There are multiple places you can find the logs, though some will have more deta
 
 The beauty of OpenShift is that you can deploy any type of application, which allows you to get creative based on your interests. To get you started on this GHC Hackathon, we've come up with a couple ideas that may inspire you to think of your own!
 
-** Collecting Events Data **
+**Collecting Events Data**
 
 Use the Python seed to collect relavant data surrounding galas and fundraisers for important causes in your area. 
 
-** Natural Disaster Information Application **
+**Natural Disaster Information Application**
 
 Use our Angular2/Node seed to connect to the ReliefWeb API to receive up to date information on natural disasters in the US. 
 
-** Daily Action Items Application **
+**Daily Action Items Application**
 
 Use our Java seed to connect to the Google Mail API so you can send emails to subscribed users on daily action items for the humanitarian cause of your choice (ie sustainability, womens rights)
