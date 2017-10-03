@@ -126,7 +126,10 @@ docker-machine --version
   * Click on Apply and Restart
 * Install socat
   * If not installed already, install Homebrew for Mac
-  * In Terminal, run: `brew install socat`
+  * In Terminal, run: 
+  ```
+  brew install socat
+  ```
   * May need to change permissions and ownership of /usr/local:
 
 ```
