@@ -10,5 +10,5 @@ For quick definitions of common terms, [look here](https://github.com/eleanordar
 
 ### Seed Applications
 * [Java](https://github.com/rynefagin/java-seed-ghc)
-* [AngularJS](https://github.com/ematusov/nodejs-ex)
+* [NodeJS](https://github.com/ematusov/nodejs-ex)
 * [Python 3.5](https://github.com/eleanordare/flask-python-openshift)
