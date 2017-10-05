@@ -57,13 +57,10 @@ In Terminal, login with `oc login -u system:admin` to get full cluster-admin acc
 
   All you have to do is name your application, choose the correct language/version (i.e. click JavaScript and then the right Node.js version for an AngularJS app, click Python and then the right Python version for a Python app, etc.), and add a Git repo of your source code. OpenShift will handle the rest!
 
-3. *[optional]* Add a webhook trigger to your Git repo with the URL on the next page. In GitHub, go to your repo, then Settings > Webhooks & services. This will kick off a build in OpenShift with your updated code every time you push to Git.
+3. View your seed application as it builds by clicking on **Builds** in the sidebar. Click on the **last build** link to see the most recent build, then **Logs** to see the build logs.
 
-4. View your seed application as it builds by clicking on **Builds** in the sidebar. Click on the **last build** link to see the most recent build, then **Logs** to see the build logs.
+4. Once the build has completed, the application’s ImageStream will have been updated with a new image. The DeployConfig contains an “image change trigger” that kicks off a new deployment every time an image is added to the ImageStream. You can see your application deploy by clicking on **Applications > Deployments**, then the last version link to see the most recent deployment.
 
-5. Once the build has completed, the application’s ImageStream will have been updated with a new image. The DeployConfig contains an “image change trigger” that kicks off a new deployment every time an image is added to the ImageStream. You can see your application deploy by clicking on **Applications > Deployments**, then the last version link to see the most recent deployment.
+5. If you scroll down, you’ll see the running pod(s) containing your application. Click on a pod, then **Logs**, to view the application logs as they run in your container.
 
-6. If you scroll down, you’ll see the running pod(s) containing your application. Click on a pod, then **Logs**, to view the application logs as they run in your container.
-
-7. Go to the **Overview** page to see an aggregated view of your project. Click on the large URL above all of the application components and you’ll see your deployed application!
-
+6. Go to the **Overview** page to see an aggregated view of your project. Click on the large URL above all of the application components and you’ll see your deployed application!
